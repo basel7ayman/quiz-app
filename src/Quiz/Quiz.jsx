@@ -5,7 +5,7 @@ export default function Quiz() {
     }, 200);
   }
 
-  alertQuiz();
+  // alertQuiz();
 
   return (
     <>
