@@ -1,10 +1,19 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  function handleStart() {
+    navigate("/learnMore");
+  }
+
+  function handleQuiz() {
+    navigate("/quiz");
+  }
+
   return (
     <>
-      <Navbar />
       <section className="relative min-h-screen bg-linear-to-br from-slate-50 via-white to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 pt-20">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-30" />
@@ -29,7 +38,10 @@ export default function Header() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-linear-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <button
+                  onClick={handleQuiz}
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-white bg-linear-to-r from-blue-600 to-purple-600 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
                   Start Quiz
                   <svg
                     className="w-5 h-5 ml-2"
@@ -44,7 +56,10 @@ export default function Header() {
                     />
                   </svg>
                 </button>
-                <button className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300">
+                <button
+                  onClick={handleStart}
+                  className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
+                >
                   Learn More
                 </button>
               </div>

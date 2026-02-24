@@ -1,25 +1,32 @@
 import "./App.css";
 import "flowbite";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Home from "./Home/Home";
-import Features from "./Features/Features";
-import Quizzes from "./Quizzes/Quizzes";
-import Contact from "./Contact/Contact";
+import LearnMore from "./Learn More/LearnMore";
 import Footer from "./Footer/Footer";
+import Quiz from "./Quiz/Quiz";
 
 function App() {
+  const location = useLocation();
+
+  const hideFooter = location.pathname === "/quiz";
+
   return (
-    <Router>
+    <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/features" element={<Features />} />
-        <Route path="/quizzes" element={<Quizzes />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/learnMore" element={<LearnMore />} />
+        <Route path="/quiz" element={<Quiz />} />
       </Routes>
-      <Footer />
-    </Router>
+      {!hideFooter && <Footer />}
+    </>
   );
 }
 
