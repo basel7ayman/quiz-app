@@ -30,7 +30,7 @@ export default function Navbar() {
               to="/learnMore"
               className="px-3 py-2 text-sm font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              Learn More
+              More quizzes
             </Link>
             <Link
               to="/quiz"
@@ -81,9 +81,18 @@ export default function Navbar() {
               Home
             </Link>
 
-            <button className="w-full mt-2 px-4 py-2 text-sm font-semibold text-white bg-linear-to-r from-blue-600 to-purple-600 rounded-lg hover:opacity-75 transition-all duration-300">
-              Get Started
-            </button>
+              <Link
+                to="/learnMore"
+                className="block px-3 py-2 text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              >
+                More quizzes
+              </Link>
+              <Link
+                to="/quiz"
+                className="block px-3 py-2 text-base font-medium text-gray-900 dark:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              >
+                Start Quiz
+              </Link>
           </div>
         </div>
       )}

@@ -60,7 +60,7 @@ export default function Header() {
                   onClick={handleStart}
                   className="inline-flex items-center justify-center px-8 py-3 text-base font-semibold text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300"
                 >
-                  Learn More
+                  More quizzes
                 </button>
               </div>
             </div>

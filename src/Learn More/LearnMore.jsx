@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function LearnMore() {
+  const navigate = useNavigate();
+
   const quizzes = [
     {
       id: 1,
@@ -117,7 +120,10 @@ export default function LearnMore() {
                     <p>⭐ {quiz.rating} Rating</p>
                   </div>
 
-                  <button className="w-full bg-linear-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg hover:opacity-90 transition-opacity font-medium">
+                  <button
+                    onClick={() => navigate(`/quiz?id=${quiz.id}`)}
+                    className="w-full bg-linear-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg hover:opacity-90 transition-opacity font-medium"
+                  >
                     Start Quiz
                   </button>
                 </div>

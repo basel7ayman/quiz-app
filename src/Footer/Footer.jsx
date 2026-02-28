@@ -7,8 +7,8 @@ export default function Footer() {
     {
       title: "Product",
       links: [
-        { name: "Features", to: "/features" },
-        { name: "Quizzes", to: "/quizzes" },
+        { name: "Features", to: "#" },
+        { name: "Quizzes", to: "/learnMore" },
         { name: "Pricing", to: "#" },
         { name: "FAQ", to: "#" },
       ],
@@ -19,7 +19,7 @@ export default function Footer() {
         { name: "About Us", to: "#" },
         { name: "Blog", to: "#" },
         { name: "Careers", to: "#" },
-        { name: "Contact", to: "/contact" },
+        { name: "Contact", to: "#" },
       ],
     },
   ];
