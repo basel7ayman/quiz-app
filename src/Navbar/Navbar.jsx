@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const logoSrc = `${import.meta.env.BASE_URL}quiz-icon.svg`;
 
   return (
     <nav className="fixed w-full z-50 mb-4 top-0 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-gray-200 dark:border-gray-800">
@@ -10,7 +11,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-3">
             <img
-              src="/quiz-icon.svg"
+              src={logoSrc}
               alt="QuizMaster Logo"
               className="w-10 h-10"
             />

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 // quiz database with six sets of five questions each
 const quizData = {
@@ -66,6 +66,7 @@ const quizData = {
 };
 
 export default function Quiz() {
+  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const quizId = searchParams.get("id");
   const quiz = quizData[quizId] || quizData[1];
@@ -175,13 +176,13 @@ export default function Quiz() {
               </p>
               <div className="flex justify-center space-x-4">
                 <button
-                  onClick={() => (window.location.href = '/')}
+                  onClick={() => navigate("/")}
                   className="bg-green-600 text-white px-4 py-2 rounded-lg hover:opacity-90"
                 >
                   Return Home
                 </button>
                 <button
-                  onClick={() => window.location.href = `/learnMore`}
+                  onClick={() => navigate("/learnMore")}
                   className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:opacity-90"
                 >
                   Start Another Quiz
