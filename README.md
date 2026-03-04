@@ -1,90 +1,54 @@
 # Quiz App
 
-A modern interactive quiz application built with React and Vite. Test your knowledge with an engaging user interface powered by Tailwind CSS.
+A modern interactive quiz application built with React and Vite. Test your knowledge with an engaging UI powered by Tailwind CSS and Flowbite components.
+
+- **Live demo**: `https://basel7ayman.github.io/quiz-app/`
+- **Project idea** (from roadmap.sh): `https://roadmap.sh/projects/quiz-app`
 
 ## 📋 Features
 
-- **Home Page** - Welcome screen with introduction to the quiz app
-- **Learn More** - Educational content section to enhance your knowledge
-- **Quiz Section** - Interactive quiz interface to test your skills
-- **Responsive Design** - Works seamlessly on desktop and mobile devices
-- **Navigation** - Easy navigation between different sections
+- **Home page** – Intro to the quiz and CTA to start
+- **Learn More page** – Extra educational content and quiz selection
+- **Quiz page** – Timed multiple‑choice questions with instant feedback and scoring
+- **Result modal** – Final score summary with navigation back home or to more quizzes
+- **Responsive design** – Works on desktop and mobile
 
 ## 🛠️ Tech Stack
 
-- **Frontend Framework**: React 19
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS with Flowbite components
+- **Framework**: React 19 (Vite + React plugin)
+- **Bundler/Dev server**: Vite
+- **Styling**: Tailwind CSS 4 + Flowbite
 - **Routing**: React Router DOM
-- **Code Quality**: ESLint
-- **Package Manager**: npm
-
-## 📦 Installation
-
-1. Clone or download the project
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+- **Linting**: ESLint
 
 ## 🚀 Getting Started
 
-### Development Mode
-Start the development server:
-```bash
-npm run dev
-```
-The app will be available at `http://localhost:5173`
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+   The app runs at `http://localhost:5173`.
 
-### Build for Production
-Create an optimized production build:
-```bash
-npm run build
-```
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-### Preview Production Build
-Preview the built app locally:
-```bash
-npm run preview
-```
+## 📱 Main Routes
 
-## 🎯 Project Structure
-
-```
-src/
-├── App.jsx           - Main app component with routing
-├── Navbar/           - Navigation bar component
-├── Home/             - Home page component
-├── Learn More/       - Educational content section
-├── Quiz/             - Quiz page component
-├── Footer/           - Footer component
-├── Contact/          - Contact information
-└── assets/           - Static assets
-```
-
-## 🧪 Code Quality
-
-Check for linting errors:
-```bash
-npm run lint
-```
-
-## 📱 Pages
-
-- **Home** (`/`) - Landing page with introduction
-- **Learn More** (`/learnMore`) - Educational resource page
-- **Quiz** (`/quiz`) - Interactive quiz interface
+- `/` – Home
+- `/learnMore` – Learn More / more quizzes
+- `/quiz` – Quiz (supports `?id=` to select quiz set)
 
 ## 🎨 Styling
 
-The project uses:
-- **Tailwind CSS** - Utility-first CSS framework
-- **Flowbite** - Pre-built UI components for Tailwind
-
-## 📄 License
-
-This is a personal project.
+- Tailwind CSS utility classes for layout and theming
+- Flowbite components for ready‑made, accessible UI elements
 
 ---
 
-**Last Updated**: February 2026
+**Last Updated**: March 2026
