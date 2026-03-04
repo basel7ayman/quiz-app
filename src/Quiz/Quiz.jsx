@@ -1,66 +1,241 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-// quiz database with six sets of five questions each
+// quiz database with six software-focused sets of five questions each
 const quizData = {
   1: {
-    title: "General Knowledge",
+    title: "Programming Fundamentals",
     questions: [
-      { text: "Capital of France?", options: ["Paris","Berlin","Rome","Madrid"], correct: "Paris" },
-      { text: "Red Planet?", options: ["Earth","Mars","Jupiter","Venus"], correct: "Mars" },
-      { text: "How many continents?", options: ["5","6","7","8"], correct: "7" },
-      { text: "Who wrote '1984'?", options: ["Orwell","Huxley","Bradbury","Atwood"], correct: "Orwell" },
-      { text: "Largest ocean?", options: ["Atlantic","Pacific","Indian","Arctic"], correct: "Pacific" },
+      {
+        text: "Which time complexity is better for large inputs?",
+        options: ["O(n^2)", "O(n log n)", "O(2^n)", "O(n!)"],
+        correct: "O(n log n)",
+      },
+      {
+        text: "Which data structure works on a FIFO principle?",
+        options: ["Stack", "Queue", "Tree", "Graph"],
+        correct: "Queue",
+      },
+      {
+        text: "In most languages, which keyword defines a constant that cannot be reassigned?",
+        options: ["let", "var", "const", "static"],
+        correct: "const",
+      },
+      {
+        text: "What does \"refactoring\" primarily aim to improve?",
+        options: [
+          "Performance only",
+          "Code readability and structure",
+          "Database schema",
+          "Network latency",
+        ],
+        correct: "Code readability and structure",
+      },
+      {
+        text: "Which of these is an example of a strongly typed language?",
+        options: ["JavaScript", "Python", "TypeScript", "PHP"],
+        correct: "TypeScript",
+      },
     ],
   },
   2: {
     title: "Web Development Basics",
     questions: [
-      { text: "What does HTML stand for?", options: ["Hypertext Markup Language","Home Tool Markup Language","Hyperlinks and Text Markup Language","None"], correct: "Hypertext Markup Language" },
-      { text: "Which tag inserts a line break?", options: ["<br>","<lb>","<break>","<newline>"], correct: "<br>" },
-      { text: "CSS stands for?", options: ["Cascading Style Sheets","Computer Style Sheets","Creative Style System","Colorful Style Sheets"], correct: "Cascading Style Sheets" },
-      { text: "Which HTML element is used to define important text?", options: ["<strong>","<b>","<important>","<i>"], correct: "<strong>" },
-      { text: "JavaScript file has extension?", options: [".js",".java",".script",".jsx"], correct: ".js" },
+      {
+        text: "Which HTML element is most appropriate for a navigation bar?",
+        options: ["<div>", "<section>", "<nav>", "<header>"],
+        correct: "<nav>",
+      },
+      {
+        text: "Which CSS layout module is best suited for one-dimensional layouts?",
+        options: ["Flexbox", "Grid", "Float", "Positioning"],
+        correct: "Flexbox",
+      },
+      {
+        text: "In CSS Grid, which property defines the rows?",
+        options: [
+          "grid-template-columns",
+          "grid-template-rows",
+          "grid-auto-flow",
+          "grid-row-start",
+        ],
+        correct: "grid-template-rows",
+      },
+      {
+        text: "Which HTTP status code represents a successful GET request?",
+        options: ["200", "301", "400", "500"],
+        correct: "200",
+      },
+      {
+        text: "Which HTML attribute improves accessibility by describing images?",
+        options: ["title", "alt", "aria-label", "description"],
+        correct: "alt",
+      },
     ],
   },
   3: {
-    title: "JavaScript Fundamentals",
+    title: "JavaScript Deep Dive",
     questions: [
-      { text: "Which company developed JavaScript?", options: ["Netscape","Microsoft","Sun Microsystems","Oracle"], correct: "Netscape" },
-      { text: "let vs var: which is block scoped?", options: ["let","var","both","none"], correct: "let" },
-      { text: "Arrow function syntax uses?", options: ["=>","->","<-","=/="], correct: "=>" },
-      { text: "Which method adds an element to end of array?", options: ["push","pop","shift","unshift"], correct: "push" },
-      { text: "JSON stands for?", options: ["JavaScript Object Notation","Java Standard Output Notation","JavaScript Oriented Notation","None"], correct: "JavaScript Object Notation" },
+      {
+        text: "Which keyword creates a block-scoped variable?",
+        options: ["var", "let", "function", "static"],
+        correct: "let",
+      },
+      {
+        text: "What does `Array.prototype.map` return?",
+        options: [
+          "A modified original array",
+          "A new array",
+          "An iterator",
+          "A promise",
+        ],
+        correct: "A new array",
+      },
+      {
+        text: "Which statement best describes `async/await`?",
+        options: [
+          "Syntax sugar over promises",
+          "Replacement for callbacks only",
+          "Feature only in Node.js",
+          "Blocks the main thread",
+        ],
+        correct: "Syntax sugar over promises",
+      },
+      {
+        text: "What is the value of `this` in a regular function used as an event handler in the browser (non-strict mode)?",
+        options: ["The window object", "undefined", "The element that fired the event", "null"],
+        correct: "The element that fired the event",
+      },
+      {
+        text: "Which built-in method converts a JSON string into an object?",
+        options: ["JSON.stringify", "Object.fromJSON", "JSON.toObject", "JSON.parse"],
+        correct: "JSON.parse",
+      },
     ],
   },
   4: {
-    title: "React Advanced",
+    title: "React & State Management",
     questions: [
-      { text: "Hook for state in functional components?", options: ["useState","useEffect","useContext","useReducer"], correct: "useState" },
-      { text: "JSX stands for?", options: ["JavaScript XML","JavaScript eXtension","Just Simple XML","None"], correct: "JavaScript XML" },
-      { text: "How to pass props?", options: ["<Component prop={value}/>","<Component>{value}</Component>","passProp(Component,value)","None"], correct: "<Component prop={value}/>" },
-      { text: "Which hook runs on mount?", options: ["useEffect","useMemo","useCallback","useLayoutEffect"], correct: "useEffect" },
-      { text: "Context API is used for?", options: ["state management","routing","styling","testing"], correct: "state management" },
+      {
+        text: "Which hook is best suited for managing complex state logic in a single component?",
+        options: ["useState", "useEffect", "useReducer", "useMemo"],
+        correct: "useReducer",
+      },
+      {
+        text: "Where is the safest place to perform data fetching in a React component?",
+        options: [
+          "Directly in the component body",
+          "Inside useEffect",
+          "Inside render return",
+          "In CSS files",
+        ],
+        correct: "Inside useEffect",
+      },
+      {
+        text: "What problem does the Context API mainly solve?",
+        options: [
+          "Too many HTTP calls",
+          "Prop drilling across deeply nested components",
+          "CSS conflicts",
+          "Server-side rendering",
+        ],
+        correct: "Prop drilling across deeply nested components",
+      },
+      {
+        text: "Which hook is used to memoize expensive calculations?",
+        options: ["useMemo", "useCallback", "useRef", "useLayoutEffect"],
+        correct: "useMemo",
+      },
+      {
+        text: "What is a common performance issue React DevTools can help you find?",
+        options: [
+          "Memory leaks in the OS",
+          "Unnecessary re-renders",
+          "Database deadlocks",
+          "DNS misconfiguration",
+        ],
+        correct: "Unnecessary re-renders",
+      },
     ],
   },
   5: {
-    title: "History & Culture",
+    title: "Git & GitHub",
     questions: [
-      { text: "Who discovered America?", options: ["Columbus","Vespucci","Magellan","Cook"], correct: "Columbus" },
-      { text: "Year World War II ended?", options: ["1945","1918","1939","1965"], correct: "1945" },
-      { text: "First man on the Moon?", options: ["Neil Armstrong","Buzz Aldrin","Yuri Gagarin","Michael Collins"], correct: "Neil Armstrong" },
-      { text: "The Renaissance began in which country?", options: ["Italy","France","Spain","Germany"], correct: "Italy" },
-      { text: "Great wall is located in?", options: ["China","India","Egypt","Mexico"], correct: "China" },
+      {
+        text: "Which command creates a new Git branch and switches to it?",
+        options: [
+          "git checkout new",
+          "git branch new && git switch new",
+          "git switch -c new",
+          "git commit -b new",
+        ],
+        correct: "git switch -c new",
+      },
+      {
+        text: "Which file should you edit to prevent certain files from being committed?",
+        options: [".gitignore", ".gitconfig", ".env", "package.json"],
+        correct: ".gitignore",
+      },
+      {
+        text: "What does `git pull origin main` do?",
+        options: [
+          "Only fetches from remote",
+          "Only merges local branches",
+          "Fetches and merges `origin/main` into current branch",
+          "Deletes the main branch",
+        ],
+        correct: "Fetches and merges `origin/main` into current branch",
+      },
+      {
+        text: "In GitHub, what is a Pull Request primarily used for?",
+        options: [
+          "Requesting server resources",
+          "Proposing and reviewing code changes",
+          "Restarting CI pipelines",
+          "Changing repository visibility",
+        ],
+        correct: "Proposing and reviewing code changes",
+      },
+      {
+        text: "Which command shows a one-line summary of recent commits?",
+        options: ["git status", "git log --oneline", "git diff", "git reflog"],
+        correct: "git log --oneline",
+      },
     ],
   },
   6: {
-    title: "Chemistry 101",
+    title: "Web Security & HTTP",
     questions: [
-      { text: "Atomic number of Oxygen?", options: ["8","6","7","9"], correct: "8" },
-      { text: "pH of pure water?", options: ["7","1","14","0"], correct: "7" },
-      { text: "Chemical symbol for Gold?", options: ["Au","Ag","Gd","Go"], correct: "Au" },
-      { text: "H2O is?", options: ["Water","Hydrogen peroxide","Hydrogen oxide","Hydroxide"], correct: "Water" },
-      { text: "Periodic table was created by?", options: ["Mendeleev","Newton","Einstein","Curie"], correct: "Mendeleev" },
+      {
+        text: "Which HTTP method is typically used for creating a new resource?",
+        options: ["GET", "POST", "PUT", "DELETE"],
+        correct: "POST",
+      },
+      {
+        text: "What does HTTPS add on top of HTTP?",
+        options: ["Caching", "Compression", "Encryption via TLS", "IPv6 support"],
+        correct: "Encryption via TLS",
+      },
+      {
+        text: "Which vulnerability allows attackers to run scripts in a victim's browser?",
+        options: ["SQL Injection", "XSS (Cross-Site Scripting)", "CSRF", "DOS"],
+        correct: "XSS (Cross-Site Scripting)",
+      },
+      {
+        text: "What is the main purpose of an HTTP status code in the 4xx range?",
+        options: [
+          "Server errors",
+          "Informational messages",
+          "Redirection",
+          "Client errors",
+        ],
+        correct: "Client errors",
+      },
+      {
+        text: "Which header is commonly used to prevent browsers from loading a site in an iframe?",
+        options: ["Content-Type", "X-Frame-Options", "Cache-Control", "Accept"],
+        correct: "X-Frame-Options",
+      },
     ],
   },
 };
