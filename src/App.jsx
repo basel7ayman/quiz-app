@@ -1,11 +1,6 @@
 import "./App.css";
 import "flowbite";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./Navbar/Navbar";
 import Home from "./Home/Home";
 import LearnMore from "./Learn More/LearnMore";

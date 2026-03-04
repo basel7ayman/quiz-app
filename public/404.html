@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        // GitHub Pages serves SPA routes as 404s unless we redirect back to the app entry.
+        // We store the original URL so `index.html` can restore it via `history.replaceState`.
+        try {
+          sessionStorage.redirect = window.location.href;
+        } catch (_) {
+          // Storage may be blocked in strict privacy modes; best-effort only.
+        }
+        window.location.replace("/quiz-app/");
+      })();
+    </script>
+  </body>
+</html>
